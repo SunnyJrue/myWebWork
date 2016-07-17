@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name='viewport' content='width=device-width,initial-scale=1.0,user-scalable=no'>
+    
+    <link rel="stylesheet" href="../css/demo.css">
+    <script src='../js/jquery-1.12.4.js'></script>
+
+
+    <title>分类</title>
+
+</head>
+<body>
+    <div class="box">
+        <div class="header">
+          <div id='headTitle'>新品上市</div>
+          <div>
+            <a href="shopcar.html"><img src="../img/shopcar.gif" alt=""></a>
+        </div>
+
+    </div>
+    <div class="content">
+        <div class="topList">
+            <span><img src="../img/top_1.gif" alt=""></span>
+            <span><img src="../img/top_2.gif" alt=""></span>
+            <span><img src="../img/top_3.gif" alt=""></span>
+            <span><img src="../img/top_4.gif" alt=""></span>
+            <span><img src="../img/top_5.gif" alt=""></span>
+            <span><img src="../img/top_6.gif" alt=""></span>
+            <span><img src="../img/top_7.gif" alt=""></span>
+            <span><img src="../img/top_8.gif" alt=""></span>
+            <span><img src="../img/top_9.gif" alt=""></span>
+        </div>
+
+        <ul id='list1'>
+      
+        </ul>
+
+    </div>
+    <div class="footer">
+        <div>
+            <a href='../demo.html' >
+                <img src="../img/ft_1.gif" alt="">
+                <div>首页</div>
+            </a>
+        </div>
+        <div>
+            <a href='../html/series.html' >
+                <img src="../img/ft_2.gif" alt="">
+                <div>分类</div>
+            </a>
+        </div>
+        <div>
+            <a href="../html/shopcar.html">
+                <img src="../img/ft_3.gif" alt="">
+                <div>购物车</div>
+            </a>
+
+        </div>
+        <div>
+            <a href="../html/login.html">
+                <img src="../img/ft_4.gif" alt="">
+                <div>我的秀</div>
+            </a>
+        </div>
+        <div>
+            <a href="../html/gift.html">
+                <img src="../img/ft_5.gif" alt="">
+                <div>更多</div>
+            </a>
+        </div>
+
+    </div>
+</div>
+
+</body>
+<script>
+
+    var index =0;
+    var timer;
+    function loadCloth(num){
+
+
+
+
+
+
+        var count=0;
+        timer =setInterval(function(){
+            count++;
+            num++;
+            $.ajax({
+                url:"http://datainfo.duapp.com/shopdata/getGoods.php",
+                type:"get",
+                data:"goodsID="+num,
+                dataType:'jsonp',
+                success:function(data){
+                    
+                    console.log(data)
+                    var dataList = document.getElementById('list1')
+                    var oImagL = data[0].goodsListImg;
+                    var oImag=JSON.parse(data[0].imgsUrl)
+                    var oImagName = data[0].goodsName;
+                    var oldprice = (parseInt(data[0].price)).toFixed(2);
+                    if(data[0].discount > 0){
+                        var price = (data[0].price*data[0].discount/10).toFixed(2);
+                        
+                    }else if(data[0].discount ==0){
+                        var price =  (parseInt(data[0].price)).toFixed(2);
+                    }
+
+                    var _html_h = '<li><a href="details_'+num+'.html"><img src ='+oImagL+'></a><p>'+oImagName+'</p><p><span class="price">￥'+price+'</span>&ensp;<s class="oldprice">￥'+oldprice+'</s></p></li>';
+                    $('#list1').append(_html_h);
+
+                }
+            })
+            
+            if(count==6){
+                clearInterval(timer)
+            }
+        },200)
+
+
+
+    }
+
+// 首页的衣服展示;
+loadCloth(0)
+layLoad(6)
+
+function layLoad(num){
+    $(document).on('mousewheel',function(){
+
+        var timer1;
+        var wHeight = $(window).height();
+        var top = $(window).scrollTop();
+        var hgt = $(document).height();
+        // console.log(top,hgt,wHeight)
+        if(top+wHeight >= hgt){
+       var count=0;
+       timer1 =setInterval(function(){
+           count++;
+           num++;
+           $.ajax({
+               url:"http://datainfo.duapp.com/shopdata/getGoods.php",
+               type:"get",
+               data:"goodsID="+num,
+               dataType:'jsonp',
+               success:function(data){
+                   
+                   console.log(data)
+                   var dataList = document.getElementById('list1')
+                   var oImagL = data[0].goodsListImg;
+                   var oImag=JSON.parse(data[0].imgsUrl)
+                   var oImagName = data[0].goodsName;
+                   var oldprice = (parseInt(data[0].price)).toFixed(2);
+                   if(data[0].discount > 0){
+                       var price = (data[0].price*data[0].discount/10).toFixed(2);
+                       
+                   }else if(data[0].discount ==0){
+                       var price =  (parseInt(data[0].price)).toFixed(2);
+                   }
+
+                   var _html_h = '<li><a href="details_'+num+'.html"><img src ='+oImagL+'></a><p>'+oImagName+'</p><p><span class="price">￥'+price+'</span>&ensp;<s class="oldprice">￥'+oldprice+'</s></p></li>';
+                   $('#list1').append(_html_h);
+
+               }
+           })
+            console.log(count)
+           
+           if(count>=6){
+               clearInterval(timer1)
+               console.log(111111111111111111)
+           }
+       },300)
+
+
+
+
+}
+    })
+}
+
+
+    //点击顶部功能页，切换到不同的商品 
+    $('.topList').on('click','span',function(){
+        var listNum = $(this).index()*6;
+        console.log(listNum)
+        $('#list1 li').remove();
+        loadCloth(listNum)
+        layLoad(listNum+1)
+
+
+    })
+
+
+
+
+</script>
+</html>

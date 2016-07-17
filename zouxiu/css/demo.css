@@ -1,0 +1,110 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+html,
+body,
+.box {
+  height: 100%;
+  width: 100%;
+  font-family: '微软雅黑';
+  font-size: 14px;
+}
+html a,
+body a,
+.box a {
+  color: white;
+  text-decoration: none;
+}
+.header {
+  height: 50px;
+  width: 100%;
+  background: #ab1b1a;
+  color: white;
+  position: fixed;
+}
+.header div {
+  position: absolute;
+}
+.header div:nth-child(1) {
+  left: 50%;
+  margin-left: -36px;
+  font-size: 18px;
+  line-height: 50px;
+}
+.header div:nth-child(2) {
+  width: 52px;
+  height: 26px;
+  background: #ab1b1a;
+  border: 1px solid #830705;
+  border-radius: 5px;
+  position: absolute;
+  line-height: 35px;
+  text-align: center;
+  right: 20px;
+  top: 12px;
+}
+.header div:nth-child(2) img {
+  width: 22px;
+}
+.content {
+  overflow: hidden;
+  width: 100%;
+}
+.content .topList {
+  position: fixed;
+  width: 100%;
+  height: 30px;
+  background: #9a9fa5;
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-around;
+}
+.content .topList img {
+  height: 29px;
+}
+.content ul {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  margin-top: 50px;
+}
+.content ul li {
+  list-style: none;
+  width: 40%;
+  margin-top: 25px;
+}
+.content ul li img {
+  width: 128px;
+  height: 164px;
+  box-shadow: 0 2px 4px #acacae;
+}
+.content ul li p {
+  font-size: 12px;
+}
+.content ul li .price {
+  color: red;
+}
+.content ul li .oldprice {
+  color: #111;
+}
+.footer {
+  width: 100%;
+  height: 50px;
+  background: #484850;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.footer img {
+  width: 25px;
+}
+.footer > div {
+  text-align: center;
+}
+.footer > div > div {
+  color: white;
+}

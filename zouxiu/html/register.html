@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name='viewport' content='width=device-width,initial-scale=1.0,user-scalable=no'>
+    <link rel="stylesheet" href="../css/register.css">
+
+    <title>注册</title>
+    <script src='../js/jquery-1.12.4.js'></script>
+</head>
+<body>
+<div class="box">
+     <div class="header">
+        <a href="login.html"><img src="../img/reg_top_1.gif" alt=""></a>
+        <span><p>新用户注册<p></span>
+        
+    </div>
+    
+    
+    <div class="content">
+        <!--<form action="">-->
+            
+            <div class="name">
+                <label for="username" class='lab'>账户名称：<input type="text" class='' id='username' placeholder='请输入账户'></label>
+                <div class='corret'>√</div>
+                <div class='errMsg'>用户名不能为空</div>
+
+            </div>
+            <div class="name">
+                <label for="password" class='lab'>登陆密码：<input type="password" class='' id='password'  placeholder='至少6位数字密码'></label>
+                <div class='corret'>√</div>
+                <div class='errMsg'>* 您输入的密码有误</div>
+            </div>
+            <div class="name">
+                <label for="cerpass" class='lab'>确认密码：<input type="password" class='' id='cerpass'  placeholder='请确认密码'></label>
+                <div class='corret'>√</div>
+                <div class='errMsg'>* 您两次输入的密码不一致！！</div>
+            </div>
+
+        <button>确定注册</button>
+            
+        <!--</form>-->
+    </div>
+    <div class='mask'>
+        <div class='regist-msg'>
+            <p>注册成功，<span class='seconds'>5</span>&nbsp;秒后跳转至登录界面</p>
+            <p><a href="login.html">立即前往登录</a></p>
+        </div>
+        
+    </div>
+</div>
+   <script>
+        $(document).ready(function(){
+            var username = $('#username').val();
+            
+            var password = $('#password').val();
+            var certainpassword = $('#cerpass').val();
+            $('#username').on('blur',function(){
+                var username = $('#username').val();
+                if(username){
+                    // console.log(1)
+                    $('.corret').eq(0).show();
+                    $('.errMsg').eq(0).hide()
+                }else{
+                    $('.corret').eq(0).hide();
+                    $('.errMsg').eq(0).show().text('用户名不能为空');
+
+                }
+                // 实时验证用户名是否可用
+
+
+                $.ajax({
+                    url:'http://datainfo.duapp.com/shopdata/getuser.php',
+                    type:'get',
+                    data:'userID='+username,
+                    dataType:'jsonp',
+                    success:function(data){
+                        console.log(data)
+                        if(username){
+                            if(data){
+                                $('.errMsg').eq(0).show().text(' 该用户名已经被注册！');
+                                $('.corret').eq(0).hide();
+                            }   else if(data == 0){
+                                $('.errMsg').eq(0).hide();
+                                $('.corret').eq(0).show();
+                            }
+                   
+                            
+                        }
+                    }
+
+                })
+
+
+
+            })
+
+            $('#password').on('blur',function(){
+                var password = $('#password').val();
+                if(password == ''){
+                    $('.errMsg').eq(1).show().text('密码不能为空');
+
+                }else if(/^[0-9a-zA-z]{0,5}$/.test(password)){
+                    $('.corret').eq(1).hide();
+                    $('.errMsg').eq(1).show().text('密码不能少于6位');
+
+                }else if(/^[0-9a-zA-z]{6,28}$/.test(password)){
+                    $('.corret').eq(1).show();
+                    $('.errMsg').eq(1).hide();
+                    $('#cerpass').on('blur',function(){
+                        var password = $('#password').val();
+                        var certainpassword = $('#cerpass').val();
+                        if(password == certainpassword){
+                            $('.corret').eq(2).show();
+                            $('.errMsg').eq(2).hide()
+                        }else{
+                            $('.errMsg').eq(2).show().text('两次输入的密码不一致');
+                            $('.corret').eq(2).hide();
+                        }
+
+                    })
+
+                }
+
+            })
+
+
+  
+
+
+            $('button').on('click',function(){
+                var username = $('#username').val();
+                
+                var password = $('#password').val();
+
+                if($('.corret').eq(0).css('display') == 'block'&& $('.corret').eq(1).css('display') == 'block'&&$('.corret').eq(2).css('display') == 'block'){
+                    $.ajax({
+                        url:'http://datainfo.duapp.com/shopdata/userinfo.php',
+                        type:'post',
+                        data:'status=register&userID='+username+'&password='+password,
+                        dataType:'',
+                        success:function(data){
+                            console.log(1)
+                
+                            $('.mask').show();
+                            var sec = 5;
+                            setInterval(function(){
+                                $('.seconds').text(sec);
+                                sec--;
+                                if(sec <= 0){
+                                    sec=0;
+                                    window.location.href='login.html';
+                                }
+                            },1000)
+
+                        }
+
+                    })
+                    // 
+                 
+
+                }
+            
+                
+                
+
+            })
+        })
+
+   </script>
+    
+</body>
+</html>

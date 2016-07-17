@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name='viewport' content='width=device-width,initial-scale=1.0,user-scalable=no'>
+    <link rel="stylesheet" href="../css/login.css">
+    <title>登录注册</title>
+    <script src='../js/jquery-1.12.4.js'></script>
+</head>
+<body>
+    <div class="box">
+        <div class="header">
+            开心摇摇用户登录
+        </div>
+
+        <div class="content">
+            <div class='count_1'>
+                <input type="text" placeholder='请输入账户' class='count'>
+                <div class='corret'>√</div>
+                <div class='errMsg'>* 您输入的密码有误</div>
+            </div>
+
+            <div class='password_1'>
+                <input type="password" placeholder='请输入密码' class='password'>
+                <div class='corret'>√</div>
+                <div class='errMsg'>* 您输入的密码有误</div>
+            </div>
+            <div class='items_1'>
+                <input type="checkbox" class='checkbox' id='check_1'>
+                <span>显示密码</span>
+                <a href="">忘记密码？</a>
+
+            </div>
+
+            <div class='items_2'>
+                <input type="checkbox" class='checkbox' id='check_2'>
+                <span>记住密码自动登录</span>
+
+
+            </div>
+
+
+            <button class='btn1'>登录</button>
+            <button class='btn2'>注册</button>
+
+        </div>
+
+        <div class='mask'>
+            <div class='regist-msg'>
+                <p>登录成功&nbsp;<span class='seconds'>5</span>&nbsp;秒后跳转至首页哦！</p>
+                <p><a href="../demo.html">立即前往首页购物</a></p>
+            </div>
+            
+        </div>
+    </div>
+
+
+    <div class='mask_1'>
+        <div class='regist-msg'>
+            <p>您已经登录！</p>
+            <p><a href='../demo.html'>点击前往购物</a></p>
+            <p><a class='login_outBtn'>退出登录</a></p>
+        </div>
+        
+    </div>
+    
+</body>
+<script src='../js/login_main.js'></script>
+</html>

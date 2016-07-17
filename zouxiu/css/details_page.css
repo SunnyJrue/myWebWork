@@ -1,0 +1,142 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+html,
+body,
+.box {
+  width: 100%;
+  height: 100%;
+  font-family: "微软雅黑";
+}
+.box .header {
+  width: 6.4rem;
+  height: 9.565%;
+  background: #d2137b;
+  display: flex;
+  align-items: center;
+}
+.box .header .img_1 {
+  height: 100%;
+}
+.box .header .img_1 a {
+  height: 100%;
+}
+.box .header .img_1 a img {
+  height: 100%;
+}
+.box .header a {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.box .header a img {
+  height: 100%;
+}
+.box .header div:nth-child(2) {
+  width: 3rem;
+  margin-left: 1.7rem;
+  font-size: 0.40rem;
+  color: white;
+  margin-right: 0.3rem;
+  display: flex;
+}
+.box .content {
+  height: 90.434%;
+  width: 100%;
+}
+.box .content .showPic {
+  margin-left: 4.688%;
+  width: 90.312%;
+  height: 52.201%;
+}
+.box .content .showPic img {
+  width: 100%;
+  height: 100%;
+}
+.box .content .introduce {
+  margin-left: 4.688%;
+  width: 90.312%;
+  height: 47.3%;
+  font-size: 0.26rem;
+}
+.box .content .introduce p {
+  font-family: '微软雅黑';
+  margin-top: 3px;
+  color: #8a8a8a;
+}
+.content {
+  width: 100%;
+  height: 79.782%;
+  background: #f2efef;
+}
+.content #swiper_1 {
+  width: 100%;
+  height: 49.591%;
+}
+.content #swiper_1 #swiper-wrapper_1 {
+  width: 100%;
+  height: 100%;
+}
+.content #swiper_1 #swiper-wrapper_1 #swiper-slide_1 {
+  width: 100%;
+  height: 100%;
+}
+.content #swiper_1 #swiper-wrapper_1 #swiper-slide_1 img {
+  width: 100%;
+  height: 100%;
+}
+.content #pagination_1 {
+  width: 48px;
+  height: 20px;
+  border-radius: 10px;
+  top: 5.8rem;
+  left: 50%;
+  margin-left: -27px;
+  background: #bcbcbc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.content #pagination_1 span {
+  margin-left: 5px;
+}
+.content #pagination_1 .swiper-pagination-bullet-active {
+  background: white;
+}
+.content .cloth-msg {
+  margin-left: 0.25rem;
+  font-size: 0.36rem;
+  font-family: '微软雅黑';
+  margin-top: 0.6rem;
+}
+.content .cloth-msg p {
+  margin-top: 0.1rem;
+}
+.content .cloth-msg .final-price {
+  color: #ba0a53;
+}
+.content .more-msg {
+  margin-top: 0.1rem;
+  width: 100%;
+  height: 13.624%;
+  background: white;
+  font-size: 0.32rem;
+  line-height: 3.5;
+  display: flex;
+}
+.content .more-msg a {
+  text-decoration: none;
+  color: #656565;
+}
+.content .more-msg span:nth-child(1) {
+  line-height: 3.8;
+  margin-right: 0.29rem;
+}
+.content .more-msg span:nth-child(3) {
+  font-family: '微软雅黑';
+  margin-left: 3.28rem;
+}
+.content .more-msg img {
+  height: 0.35rem;
+}

@@ -1,0 +1,211 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+html,
+body,
+.box {
+  width: 100%;
+  height: 100%;
+  font-family: '微软雅黑';
+  font-size: 14px;
+}
+.box .header {
+  width: 100%;
+  height: 9.56%;
+  background: #a90506;
+  color: white;
+  font-size: 16px;
+  text-align: center;
+  line-height: 50px;
+}
+.box .content {
+  height: 90.44%;
+  overflow: hidden;
+  background: #f3eff0;
+  text-align: center;
+}
+.box .content .password,
+.box .content .count {
+  width: 100%;
+  height: 100%;
+  border: none;
+  margin-top: 10px;
+  border-radius: 5px;
+  padding-left: 5%;
+}
+.box .content .password_1,
+.box .content .count_1 {
+  width: 85.625%;
+  height: 10.34%;
+  margin-top: 10px;
+  border-radius: 5px;
+  padding-left: 5%;
+  position: relative;
+}
+.box .content .password_1 .corret,
+.box .content .count_1 .corret {
+  position: absolute;
+  top: 50%;
+  margin-top: -6px;
+  right: 20px;
+  font-size: 20px;
+  color: green;
+  display: none;
+}
+.box .content .password_1 .errMsg,
+.box .content .count_1 .errMsg {
+  position: absolute;
+  top: 88%;
+  left: 10%;
+  font-size: 12px;
+  color: red;
+  display: none;
+}
+.box .content .count {
+  margin-top: 3.85%;
+}
+.box .content .items_1 {
+  height: 20px;
+  line-height: 20px;
+  text-align: left;
+  margin-top: 6.13%;
+}
+.box .content .items_1 .checkbox {
+  margin-left: 7.8125%;
+  width: 19px;
+  height: 19px;
+  vertical-align: middle;
+}
+.box .content .items_1 span,
+.box .content .items_1 a {
+  font-size: 14px;
+  vertical-align: middle;
+}
+.box .content .items_1 a {
+  color: red;
+  margin-left: 5.781%;
+  text-decoration: none;
+}
+.box .content .items_2 {
+  height: 20px;
+  line-height: 20px;
+  text-align: left;
+  margin-top: 6.01%;
+}
+.box .content .items_2 .checkbox {
+  margin-left: 7.8125%;
+  width: 19px;
+  height: 19px;
+  vertical-align: middle;
+}
+.box .content .items_2 span {
+  font-size: 14px;
+  vertical-align: middle;
+}
+.box .content button {
+  width: 89.697%;
+  height: 10.1%;
+  border-radius: 8px;
+  color: white;
+  font-size: 16px;
+  font-weight: 400;
+  font-family: '微软雅黑';
+}
+.box .content .btn1 {
+  background: -webkit-linear-gradient(bottom, #a90506 0%, #d95252 100%);
+  box-shadow: 0 1px 0px #a24c4f;
+  border: 1px solid #820100;
+  margin-top: 6.01%;
+}
+.box .content .btn2 {
+  background: -webkit-linear-gradient(bottom, #232323 0%, #7a6d6f 100%);
+  margin-top: 5px;
+  border: 1px solid #000;
+  box-shadow: 0 1px 0px #494949;
+}
+.box .mask {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: none;
+  background: rgba(204, 204, 204, 0.7);
+  top: 0;
+  z-index: 1;
+}
+.box .mask .regist-msg {
+  position: absolute;
+  width: 250px;
+  height: 120px;
+  background: #c10708;
+  border-radius: 10px;
+  left: 50%;
+  top: 50%;
+  margin-left: -125px;
+  margin-top: -60px;
+  z-index: 2;
+}
+.box .mask .regist-msg p {
+  color: white;
+  font-size: 14px;
+  text-align: center;
+}
+.box .mask .regist-msg p a {
+  color: yellow;
+  font-size: 16px;
+  text-decoration: none;
+}
+.box .mask .regist-msg p:nth-child(1) {
+  margin-top: 38px;
+  text-align: center;
+}
+.box .mask .regist-msg p:nth-child(2) {
+  margin-top: 5px;
+}
+.box .mask .regist-msg .seconds {
+  font-size: 18px;
+}
+.mask_1 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: none;
+  background: rgba(204, 204, 204, 0.7);
+  top: 0;
+  z-index: 1;
+}
+.mask_1 .regist-msg {
+  position: absolute;
+  width: 250px;
+  height: 120px;
+  background: #c10708;
+  border-radius: 10px;
+  left: 50%;
+  top: 50%;
+  margin-left: -125px;
+  margin-top: -60px;
+  z-index: 2;
+}
+.mask_1 .regist-msg p {
+  color: white;
+  font-size: 14px;
+  text-align: center;
+}
+.mask_1 .regist-msg p a {
+  color: yellow;
+  font-size: 16px;
+  text-decoration: none;
+}
+.mask_1 .regist-msg p:nth-child(1) {
+  margin-top: 38px;
+  text-align: center;
+}
+.mask_1 .regist-msg p:nth-child(2) {
+  margin-top: 5px;
+}
+.mask_1 .regist-msg .seconds {
+  font-size: 18px;
+}
+.mask_1 .login_outBtn {
+  cursor: pointer;
+}
